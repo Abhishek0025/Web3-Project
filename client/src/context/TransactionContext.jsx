@@ -90,6 +90,13 @@ export const TransactionsProvider = ({ children }) => {
     try {
       if (!ethereum) return alert("Please install MetaMask.");
 
+      // Check if we're on the correct network (Hardhat Local)
+      const chainId = await ethereum.request({ method: "eth_chainId" });
+      if (chainId !== "0x7a69") { // 31337 in hex
+        alert("Please connect to Hardhat Local network (Chain ID: 31337)");
+        return;
+      }
+
       const accounts = await ethereum.request({ method: "eth_requestAccounts", });
 
       setCurrentAccount(accounts[0]);
@@ -104,6 +111,13 @@ export const TransactionsProvider = ({ children }) => {
   const sendTransaction = async () => {
     try {
       if (ethereum) {
+        // Check if we're on the correct network (Hardhat Local)
+        const chainId = await ethereum.request({ method: "eth_chainId" });
+        if (chainId !== "0x7a69") { // 31337 in hex
+          alert("Please connect to Hardhat Local network (Chain ID: 31337)");
+          return;
+        }
+
         const { addressTo, amount, keyword, message } = formData;
         const transactionsContract = createEthereumContract();
         const parsedAmount = ethers.utils.parseEther(amount);

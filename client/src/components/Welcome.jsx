@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
+import { FaShieldAlt, FaRocket, FaCoins, FaGlobe, FaBolt, FaLink } from "react-icons/fa";
 
 import { TransactionContext } from "../context/TransactionContext";
 import { shortenAddress } from "../utils/shortenAddress";
 import { Loader } from ".";
 
-const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
+const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white hover:bg-white/10 transition-all duration-300 cursor-pointer";
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
@@ -16,7 +17,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
     step="0.0001"
     value={value}
     onChange={(e) => handleChange(e, name)}
-    className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+    className="my-2 w-full rounded-lg p-3 outline-none bg-transparent text-white border border-gray-600 text-sm white-glassmorphism focus:border-blue-500 transition-all duration-300"
   />
 );
 
@@ -38,10 +39,10 @@ const Welcome = () => {
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
         <div className="flex flex-1 justify-start items-start flex-col mf:mr-10">
           <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1">
-            Send Crypto <br /> across the world
+            Abhishek's Web3 <br /> Blockchain App
           </h1>
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
-            Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.
+            Experience the future of decentralized transactions. Built with React, Solidity, and Web3 technologies.
           </p>
           {!currentAccount && (
             <button
@@ -56,20 +57,30 @@ const Welcome = () => {
             </button>
           )}
 
-          <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
-            <div className={`rounded-tl-2xl ${companyCommonStyles}`}>
-              Reliability
+          <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10 gap-2">
+            <div className={`rounded-tl-2xl ${companyCommonStyles} flex items-center gap-2`} onClick={() => alert('Full-stack development with modern React hooks and context!')}>
+              <FaShieldAlt className="text-blue-400" />
+              Full-Stack
             </div>
-            <div className={companyCommonStyles}>Security</div>
-            <div className={`sm:rounded-tr-2xl ${companyCommonStyles}`}>
-              Ethereum
+            <div className={`${companyCommonStyles} flex items-center gap-2`} onClick={() => alert('Smart contract development with Solidity and Hardhat!')}>
+              <FaShieldAlt className="text-green-400" />
+              Smart Contracts
             </div>
-            <div className={`sm:rounded-bl-2xl ${companyCommonStyles}`}>
-              Web 3.0
-            </div>
-            <div className={companyCommonStyles}>Low Fees</div>
-            <div className={`rounded-br-2xl ${companyCommonStyles}`}>
+            <div className={`sm:rounded-tr-2xl ${companyCommonStyles} flex items-center gap-2`} onClick={() => alert('Blockchain integration with Ethereum and Web3!')}>
+              <SiEthereum className="text-purple-400" />
               Blockchain
+            </div>
+            <div className={`sm:rounded-bl-2xl ${companyCommonStyles} flex items-center gap-2`} onClick={() => alert('Modern UI/UX with Tailwind CSS and animations!')}>
+              <FaGlobe className="text-cyan-400" />
+              Modern UI
+            </div>
+            <div className={`${companyCommonStyles} flex items-center gap-2`} onClick={() => alert('Real-time transaction processing and validation!')}>
+              <FaCoins className="text-yellow-400" />
+              Real-time
+            </div>
+            <div className={`rounded-br-2xl ${companyCommonStyles} flex items-center gap-2`} onClick={() => alert('Secure wallet integration with MetaMask!')}>
+              <FaLink className="text-orange-400" />
+              Secure
             </div>
           </div>
         </div>
@@ -93,13 +104,21 @@ const Welcome = () => {
               </div>
             </div>
           </div>
-          <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
+          <div className="p-6 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism rounded-xl border border-white/10">
+            <div className="w-full mb-4">
+              <h3 className="text-white text-xl font-bold mb-2 flex items-center gap-2">
+                <FaRocket className="text-blue-400" />
+                Send Transaction
+              </h3>
+              <p className="text-gray-400 text-sm">Fill in the details below to send ETH</p>
+            </div>
+            
             <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
             <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
             <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
             <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
 
-            <div className="h-[1px] w-full bg-gray-400 my-2" />
+            <div className="h-[1px] w-full bg-gray-400 my-4" />
 
             {isLoading
               ? <Loader />
@@ -107,9 +126,10 @@ const Welcome = () => {
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
+                  className="text-white w-full mt-2 bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-lg cursor-pointer hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold flex items-center justify-center gap-2"
                 >
-                  Send now
+                  <FaBolt className="text-white" />
+                  Send Transaction
                 </button>
               )}
           </div>

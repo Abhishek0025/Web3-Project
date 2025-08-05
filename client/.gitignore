@@ -25,3 +25,7 @@ typechain
 #Hardhat files
 cache
 artifacts
+
+# Environment variables
+.env
+.env.local
