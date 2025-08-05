@@ -1,9 +1,16 @@
+# Hardhat development environment files
+# This file specifies which files and directories should be ignored by Git
+# Author: Abhishek Arunkumar
+# Last Updated: August 2025
+
 node_modules
 .env
 coverage
 coverage.json
 typechain
+typechain-types
 
-#Hardhat files
+# Hardhat files
 cache
 artifacts
+cache-*
