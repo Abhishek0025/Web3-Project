@@ -15,7 +15,7 @@ const Footer = () => (
       </div>
       <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full">
         <a 
-          href="https://github.com/adrianhajdin/project_web3.0" 
+          href="https://github.com/Abhishek0025/Web3-Project" 
           target="_blank" 
           rel="noopener noreferrer"
           className="text-white text-base text-center mx-2 cursor-pointer hover:text-blue-400 transition-colors flex items-center gap-1"

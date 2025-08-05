@@ -30,7 +30,7 @@ const Navbar = () => {
         }
         break;
       case 'github':
-        window.open("https://github.com/adrianhajdin/project_web3.0", "_blank");
+        window.open("https://github.com/Abhishek0025/Web3-Project", "_blank");
         break;
       case 'ethereum':
         window.open("https://ethereum.org/en/developers/docs/", "_blank");
