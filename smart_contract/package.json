@@ -1,13 +1,13 @@
 {
-  "name": "test3",
+  "name": "web3-blockchain-transactions",
   "version": "1.0.0",
-  "description": "",
+  "description": "Smart contract for managing blockchain transactions with metadata storage",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["blockchain", "ethereum", "solidity", "web3", "transactions"],
+  "author": "Abhishek Arunkumar",
   "license": "ISC",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.3",
